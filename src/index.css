@@ -1,0 +1,356 @@
+@import "tailwindcss";
+
+/* ========================================
+   PixVerse Design System – Tailwind v4
+   ======================================== */
+@theme {
+  --color-primary: #3B82F6;
+  --color-primary-dark: #2563EB;
+  --color-primary-light: #60A5FA;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-bg: #0B0F19;
+  --color-bg-secondary: #111827;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+}
+
+/* ========================================
+   Global Resets
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0B0F19;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light mode */
+body.light {
+  background-color: #F1F5F9;
+  color: #0F172A;
+}
+
+body.light .navbar-glass {
+  background: rgba(248, 250, 252, 0.85) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light .glass {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light .card-dark {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light .text-secondary {
+  color: #475569 !important;
+}
+
+body.light .section-bg {
+  background-color: #F8FAFC !important;
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+::-webkit-scrollbar-thumb {
+  background: #3B82F6;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* ========================================
+   Text Selection
+   ======================================== */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+}
+
+/* ========================================
+   Typography Utilities
+   ======================================== */
+.font-inter   { font-family: 'Inter', sans-serif; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-space   { font-family: 'Space Grotesk', sans-serif; }
+
+/* ========================================
+   Glassmorphism
+   ======================================== */
+.glass {
+  background: rgba(20, 25, 35, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-subtle {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.navbar-glass {
+  background: rgba(11, 15, 25, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .glass        { background: rgba(20, 25, 35, 0.97); }
+  .glass-subtle { background: rgba(30, 36, 48, 0.97); }
+  .navbar-glass { background: rgba(11, 15, 25, 0.98); }
+}
+
+/* ========================================
+   Gradient Text
+   ======================================== */
+.gradient-text {
+  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #A78BFA 0%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   Backgrounds
+   ======================================== */
+.hero-gradient {
+  background: radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 80%, rgba(236,72,153,0.04) 0%, transparent 50%),
+              #0B0F19;
+}
+
+.card-dark {
+  background: rgba(20, 25, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ========================================
+   Glow Effects
+   ======================================== */
+.glow-blue {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.35), 0 0 80px rgba(59, 130, 246, 0.1);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.35);
+}
+
+.btn-glow-primary {
+  box-shadow: 0 4px 24px rgba(59, 130, 246, 0.4);
+}
+
+.btn-glow-primary:hover {
+  box-shadow: 0 6px 32px rgba(59, 130, 246, 0.55);
+}
+
+/* ========================================
+   Shimmer Skeleton
+   ======================================== */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 25%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* ========================================
+   Ambient Orbs
+   ======================================== */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%       { transform: translate(20px, -18px) rotate(4deg); }
+  66%       { transform: translate(-12px, 14px) rotate(-3deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.65; }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: orbFloat 10s ease-in-out infinite, pulseGlow 4s ease-in-out infinite;
+}
+
+/* ========================================
+   Image Card
+   ======================================== */
+.image-card .card-overlay {
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+.image-card:hover .card-overlay {
+  opacity: 1;
+}
+.image-card .card-img {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.image-card:hover .card-img {
+  transform: scale(1.06);
+}
+
+/* ========================================
+   Scroll Snap / Hide Scrollbar
+   ======================================== */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================
+   Line Clamp
+   ======================================== */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* ========================================
+   Focus Ring
+   ======================================== */
+*:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ========================================
+   Links & Buttons Reset
+   ======================================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ========================================
+   Section Helper
+   ======================================== */
+.section-bg {
+  background-color: #111827;
+}
+
+/* ========================================
+   Gradient Border
+   ======================================== */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ========================================
+   Tag Pill
+   ======================================== */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(59, 130, 246, 0.1);
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: background 0.2s;
+}
+.tag-pill:hover {
+  background: rgba(59, 130, 246, 0.18);
+}
